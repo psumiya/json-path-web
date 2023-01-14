@@ -1,0 +1,7 @@
+= Online Json Path Evaluator
+
+This project contains the frontend files necessary to render an online Json Path evaluator.
+
+The Json Path implementation used behind the scenes is jayway jsonpath.
+
+The jayway library is wrapped in an API call, the source code of the wrapper is here: https://github.com/psumiya/json-path-api
