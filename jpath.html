@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Json Path Evaluator</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="assets/css/picocss/pico.min.css">
+  <link rel="stylesheet" href="jpath.css">
+</head>
+
+<body>
+  <nav class="container-fluid"></nav>
+  <main class="container" id="mainLayout">          
+      <form>
+        <div class="grid">
+          <div>
+              <fieldset>
+                  <legend>Input</legend>
+          <textarea rows=10 cols=20 name="jsonToEvaluate" id="jsonToEvaluate">{"hello": "world"}</textarea>
+              <a href="#" role="button" class="secondary outline" onclick="javascript:beautify();">Beautify</a>
+              </fieldset>                            
+            </div>
+            <div id="resultContainer">
+                <a id="loading" href="#" aria-busy="true" style="display: none;">Evaluating Json...</a>
+                <fieldset>
+                    <legend>Result</legend>
+                    <textarea rows=10 cols=20 id="result" readonly></textarea>
+                </fieldset>
+            </div>  
+        </div>
+        
+        <label for="pathExpression">Path Expression:
+          <input type="text" name="pathExpression" id="pathExpression" value="$" />
+        </label>
+
+        <fieldset>
+            <legend>Path Options:</legend>
+            <div>
+              <input type="checkbox" id="SUPPRESS_EXCEPTIONS" name="jsonPathOptions" value="SUPPRESS_EXCEPTIONS" checked />
+              <label for="SUPPRESS_EXCEPTIONS">SUPPRESS_EXCEPTIONS</label>
+            </div>
+            <div>
+              <input type="checkbox" id="ALWAYS_RETURN_LIST" name="jsonPathOptions" value="ALWAYS_RETURN_LIST" checked />
+              <label for="ALWAYS_RETURN_LIST">ALWAYS_RETURN_LIST</label>
+            </div>
+            <div>
+              <input type="checkbox" id="DEFAULT_PATH_LEAF_TO_NULL" name="jsonPathOptions" value="DEFAULT_PATH_LEAF_TO_NULL" />
+              <label for="DEFAULT_PATH_LEAF_TO_NULL">DEFAULT_PATH_LEAF_TO_NULL</label>
+            </div>
+        </fieldset>
+        
+        <input type="button" value="Submit" onclick="javascript:evaluateJson();" />
+      </form>  
+  </main>
+</body>
+
+<script src="jpath.js"></script>
+
+</html>
