@@ -1,6 +1,6 @@
-= Online Json Path Evaluator
+= Json Path Web
 
-This project contains the frontend files necessary to render an online Json Path evaluator.
+This project contains the frontend files necessary to render an online Json Path evaluator, as seen here: https://sumiya.page/jpath.html.
 
 The Json Path implementation used behind the scenes is jayway jsonpath.
 
