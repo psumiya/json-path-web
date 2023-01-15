@@ -14,9 +14,8 @@
   <link rel="stylesheet" href="jpath.css">
 </head>
 
-<body>
-  <nav class="container-fluid"></nav>
-  <main class="container" id="mainLayout">          
+<body>  
+    <div class="mainDiv">
       <form>
         <div class="grid">
           <div>
@@ -60,8 +59,20 @@
         </fieldset>
         <section></section>
         <input type="button" value="Submit" style="width: 50%" onclick="javascript:evaluateJson();" />
-      </form>  
-  </main>
+      </form>
+      <article>
+        <details>
+          <summary>About | Web UI to invoke Jayway JsonPath methods via a wrapper API</summary>
+          <section></section>
+          <b>References</b>
+          <ul>
+            <li>Jayway JsonPath, a Java port of <a href="https://goessner.net/articles/JsonPath/">Stefan Goessner JsonPath implementation</a>: https://github.com/json-path/JsonPath</li>
+            <li>picocss: https://picocss.com/</li>
+            <li>JsonPath Wrapper API: https://github.com/psumiya/json-path-api</li>
+          </ul>
+        </details>
+      </article>
+  </div> 
 </body>
 
 <script src="jpath.js"></script>

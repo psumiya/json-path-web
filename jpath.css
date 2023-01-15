@@ -34,8 +34,13 @@
   --form-element-focus-color: var(--primary-focus);
   --switch-color: var(--primary-inverse);
   --switch-checked-background-color: var(--primary);
-  --line-height: 1.5;
+  --line-height: 1.45;
   --font-weight: 400;
   --font-size: 16px;
-  --spacing: .5rem;
+  --spacing: .35rem;
+  --grid-spacing-horizontal: 1rem;
+}
+
+.mainDiv {
+    margin: 1%    
 }
