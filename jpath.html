@@ -22,17 +22,17 @@
           <div>
               <fieldset>
                   <legend><b>Input</b></legend>
-          <textarea rows=10 cols=20 name="jsonToEvaluate" id="jsonToEvaluate">[{"foo":"foo1","bar":"bar1"},{"foo":"foo2"}]</textarea>
-              <a href="#" role="button" class="secondary outline" onclick="javascript:beautify();">Beautify Json</a>
+                  <textarea rows=10 cols=20 name="jsonToEvaluate" id="jsonToEvaluate">[{"foo":"foo1","bar":"bar1"},{"foo":"foo2"}]</textarea>
+                  <a href="#" role="button" class="secondary outline" onclick="javascript:beautify();">Beautify Json</a>
               </fieldset>                            
-            </div>
-            <div id="resultContainer">
-                <a id="loading" href="#" aria-busy="true" style="display: none;">Evaluating Json...</a>
-                <fieldset>
-                    <legend><b>Result</b></legend>
-                    <textarea rows=10 cols=20 id="result" readonly></textarea>
-                </fieldset>
-            </div>  
+          </div>
+          <div id="resultContainer">
+              <a id="loading" href="#" aria-busy="true" style="display: none;">Evaluating Json...</a>
+              <fieldset>
+                  <legend><b>Result</b></legend>
+                  <textarea rows=10 cols=20 id="result" readonly></textarea>
+              </fieldset>
+          </div>  
         </div>
         
         <label for="pathExpression"><b>Path Expression:</b></label>
@@ -40,23 +40,23 @@
         
 
         <fieldset>
-            <legend><b>Path Options:</b></legend>
-            <div>
-              <input type="checkbox" id="SUPPRESS_EXCEPTIONS" name="jsonPathOptions" value="SUPPRESS_EXCEPTIONS" checked />
-              <label for="SUPPRESS_EXCEPTIONS">SUPPRESS_EXCEPTIONS</label>
-            </div>
-            <div>
-              <input type="checkbox" id="ALWAYS_RETURN_LIST" name="jsonPathOptions" value="ALWAYS_RETURN_LIST" checked />
-              <label for="ALWAYS_RETURN_LIST">ALWAYS_RETURN_LIST</label>
-            </div>
-            <div>
-              <input type="checkbox" id="DEFAULT_PATH_LEAF_TO_NULL" name="jsonPathOptions" value="DEFAULT_PATH_LEAF_TO_NULL" />
-              <label for="DEFAULT_PATH_LEAF_TO_NULL">DEFAULT_PATH_LEAF_TO_NULL</label>
-            </div>
-            <div>
-              <input type="checkbox" id="REQUIRE_PROPERTIES" name="jsonPathOptions" value="REQUIRE_PROPERTIES" />
-              <label for="REQUIRE_PROPERTIES">REQUIRE_PROPERTIES</label>
-            </div>
+          <legend><b>Path Options:</b></legend>
+          <div>
+            <input type="checkbox" id="SUPPRESS_EXCEPTIONS" name="jsonPathOptions" value="SUPPRESS_EXCEPTIONS" checked />
+            <label for="SUPPRESS_EXCEPTIONS">SUPPRESS_EXCEPTIONS</label>
+          </div>
+          <div>
+            <input type="checkbox" id="ALWAYS_RETURN_LIST" name="jsonPathOptions" value="ALWAYS_RETURN_LIST" checked />
+            <label for="ALWAYS_RETURN_LIST">ALWAYS_RETURN_LIST</label>
+          </div>
+          <div>
+            <input type="checkbox" id="DEFAULT_PATH_LEAF_TO_NULL" name="jsonPathOptions" value="DEFAULT_PATH_LEAF_TO_NULL" />
+            <label for="DEFAULT_PATH_LEAF_TO_NULL">DEFAULT_PATH_LEAF_TO_NULL</label>
+          </div>
+          <div>
+            <input type="checkbox" id="REQUIRE_PROPERTIES" name="jsonPathOptions" value="REQUIRE_PROPERTIES" />
+            <label for="REQUIRE_PROPERTIES">REQUIRE_PROPERTIES</label>
+          </div>
         </fieldset>
         <section></section>
         <input type="button" value="Submit" style="width: 50%" onclick="javascript:evaluateJson();" />
