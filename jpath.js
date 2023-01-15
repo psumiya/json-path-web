@@ -5,7 +5,7 @@ function beautify() {
 
 function getPrettyPrintString(unformattedString) {
     const parsedJson = JSON.parse(unformattedString);
-    return JSON.stringify(parsedJson, undefined, 4);
+    return JSON.stringify(parsedJson, null, '\t');
 }
 
 function setDisplay(id, value) {
@@ -37,7 +37,7 @@ function evaluateJson() {
         jsonPathOptions: jOptions
     };
 
-    const jsonRequest = JSON.stringify(request);
+    const jsonRequest = JSON.stringify(request, null, 0);
 
     const requestOptions = {
         method: 'POST',
@@ -62,7 +62,7 @@ function evaluateJson() {
             return response.json();
         })
         .then(data => {
-            const displayResult = JSON.stringify(data, undefined, 4);
+            const displayResult = JSON.stringify(data, null, '\t');
             resultContainer.innerHTML = displayResult;
         })
         .catch(error => {
