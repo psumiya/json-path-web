@@ -21,26 +21,26 @@
         <div class="grid">
           <div>
               <fieldset>
-                  <legend>Input</legend>
-          <textarea rows=10 cols=20 name="jsonToEvaluate" id="jsonToEvaluate">{"hello": "world"}</textarea>
-              <a href="#" role="button" class="secondary outline" onclick="javascript:beautify();">Beautify</a>
+                  <legend><b>Input</b></legend>
+          <textarea rows=10 cols=20 name="jsonToEvaluate" id="jsonToEvaluate">[{"foo":"foo1","bar":"bar1"},{"foo":"foo2"}]</textarea>
+              <a href="#" role="button" class="secondary outline" onclick="javascript:beautify();">Beautify Json</a>
               </fieldset>                            
             </div>
             <div id="resultContainer">
                 <a id="loading" href="#" aria-busy="true" style="display: none;">Evaluating Json...</a>
                 <fieldset>
-                    <legend>Result</legend>
+                    <legend><b>Result</b></legend>
                     <textarea rows=10 cols=20 id="result" readonly></textarea>
                 </fieldset>
             </div>  
         </div>
         
-        <label for="pathExpression">Path Expression:
-          <input type="text" name="pathExpression" id="pathExpression" value="$" />
-        </label>
+        <label for="pathExpression"><b>Path Expression:</b></label>
+        <input style="width: 50%" type="text" name="pathExpression" id="pathExpression" value="$[*].bar" />
+        
 
         <fieldset>
-            <legend>Path Options:</legend>
+            <legend><b>Path Options:</b></legend>
             <div>
               <input type="checkbox" id="SUPPRESS_EXCEPTIONS" name="jsonPathOptions" value="SUPPRESS_EXCEPTIONS" checked />
               <label for="SUPPRESS_EXCEPTIONS">SUPPRESS_EXCEPTIONS</label>
@@ -53,9 +53,13 @@
               <input type="checkbox" id="DEFAULT_PATH_LEAF_TO_NULL" name="jsonPathOptions" value="DEFAULT_PATH_LEAF_TO_NULL" />
               <label for="DEFAULT_PATH_LEAF_TO_NULL">DEFAULT_PATH_LEAF_TO_NULL</label>
             </div>
+            <div>
+              <input type="checkbox" id="REQUIRE_PROPERTIES" name="jsonPathOptions" value="REQUIRE_PROPERTIES" />
+              <label for="REQUIRE_PROPERTIES">REQUIRE_PROPERTIES</label>
+            </div>
         </fieldset>
-        
-        <input type="button" value="Submit" onclick="javascript:evaluateJson();" />
+        <section></section>
+        <input type="button" value="Submit" style="width: 50%" onclick="javascript:evaluateJson();" />
       </form>  
   </main>
 </body>
