@@ -32,8 +32,8 @@ function evaluateJson() {
     }
 
     const request = {
-        jsonToEvaluate: document.getElementById('jsonToEvaluate').value,
-        pathExpression: document.getElementById('pathExpression').value,
+        jsonToEvaluate: document.getElementById('jsonToEvaluate').value.trim(),
+        pathExpression: document.getElementById('pathExpression').value.trim(),
         jsonPathOptions: jOptions
     };
 
