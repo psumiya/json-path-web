@@ -39,6 +39,8 @@ function evaluateJson() {
 
     const jsonRequest = JSON.stringify(request, null, 0);
 
+    // Yes, I know the API Key is public. No, do not use this for your your own backend.
+    // You _can_ build a similar setup, as I have shown here: https://sumiya.page/json-path-evaluator-under-the-hood.html
     const requestOptions = {
         method: 'POST',
         headers: {
