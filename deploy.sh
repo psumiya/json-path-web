@@ -15,6 +15,6 @@ then
   aws s3 sync . s3://$S3_BUCKET \
   --exclude '*' \
   --include 'jpath.html' \
-  --include 'jpath.html' \
-  --include "jpath.html"
+  --include 'jpath.js' \
+  --include "jpath.css"
 fi
