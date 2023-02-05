@@ -22,8 +22,7 @@
               <fieldset>
                   <legend><b>Input</b></legend>
                   <textarea rows=10 cols=20 name="jsonToEvaluate" id="jsonToEvaluate">{"store":{"book":[{"category":"reference","author":"Nigel Rees","title":"Sayings of the Century","price":8.95},{"category":"fiction","author":"Evelyn Waugh","title":"Sword of Honour","price":12.99},{"category":"fiction","author":"Herman Melville","title":"Moby Dick","isbn":"0-553-21311-3","price":8.99},{"category":"fiction","author":"J. R. R. Tolkien","title":"The Lord of the Rings","isbn":"0-395-19395-8","price":22.99}],"bicycle":{"color":"red","price":19.95}},"expensive":10}</textarea>
-                  <a href="#" role="button" class="secondary outline" onclick="javascript:beautify();">Beautify Json</a>
-              </fieldset>                            
+              </fieldset>
           </div>
           <div id="resultContainer">
               <a id="loading" href="#" aria-busy="true" style="display: none;">Evaluating Json...</a>
@@ -33,32 +32,117 @@
               </fieldset>
           </div>  
         </div>
-        
-        <label for="pathExpression"><b>Path Expression:</b></label>
-        <input style="width: 50%" type="text" name="pathExpression" id="pathExpression" value="$..book[?(@.price <= $['expensive'])]" />
-        
-
-        <fieldset>
-          <legend><b>Path Options:</b></legend>
+        <div class="grid">
           <div>
-            <input type="checkbox" id="SUPPRESS_EXCEPTIONS" name="jsonPathOptions" value="SUPPRESS_EXCEPTIONS" />
-            <label for="SUPPRESS_EXCEPTIONS">SUPPRESS_EXCEPTIONS</label>
+            <a href="#" onclick="javascript:beautify();">Beautify Input Json</a>
+            <section></section>
+            <label for="pathExpression"><b>Path Expression:</b></label>
+            <input style="width: 50%" type="text" name="pathExpression" id="pathExpression" value="$..book[?(@.price <= $['expensive'])]" />
+            <fieldset>
+              <legend><b>Path Options:</b></legend>
+              <div>
+                <input type="checkbox" id="SUPPRESS_EXCEPTIONS" name="jsonPathOptions" value="SUPPRESS_EXCEPTIONS" />
+                <label for="SUPPRESS_EXCEPTIONS">SUPPRESS_EXCEPTIONS</label>
+              </div>
+              <div>
+                <input type="checkbox" id="ALWAYS_RETURN_LIST" name="jsonPathOptions" value="ALWAYS_RETURN_LIST" />
+                <label for="ALWAYS_RETURN_LIST">ALWAYS_RETURN_LIST</label>
+              </div>
+              <div>
+                <input type="checkbox" id="DEFAULT_PATH_LEAF_TO_NULL" name="jsonPathOptions" value="DEFAULT_PATH_LEAF_TO_NULL" />
+                <label for="DEFAULT_PATH_LEAF_TO_NULL">DEFAULT_PATH_LEAF_TO_NULL</label>
+              </div>
+              <div>
+                <input type="checkbox" id="REQUIRE_PROPERTIES" name="jsonPathOptions" value="REQUIRE_PROPERTIES" />
+                <label for="REQUIRE_PROPERTIES">REQUIRE_PROPERTIES</label>
+              </div>
+            </fieldset>
+            <section></section>
+            <input type="button" value="Submit" style="width: 50%" onclick="javascript:evaluateJson();" />
           </div>
           <div>
-            <input type="checkbox" id="ALWAYS_RETURN_LIST" name="jsonPathOptions" value="ALWAYS_RETURN_LIST" />
-            <label for="ALWAYS_RETURN_LIST">ALWAYS_RETURN_LIST</label>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col"><b>JsonPath Expression<br/>(Click link to try)</b></th>
+                  <th scope="col"><b>Description</b></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$.store.book[*].author');">$.store.book[*].author</a></td>
+                  <th scope="row">The authors of all books</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..author');">$..author</a></td>
+                  <th scope="row">All authors</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$.store.*');">$.store.*</a></td>
+                  <th scope="row">All things, both books and bicycles</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$.store..price');">$.store..price</a></td>
+                  <th scope="row">The price of everything</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[2]');">$..book[2]</a></td>
+                  <th scope="row">The third book</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[-2]');">$..book[-2]</a></td>
+                  <th scope="row">The second to last book</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[0,1]');">$..book[0,1]</a></td>
+                  <th scope="row">The first two books</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[:2]');">$..book[:2]</a></td>
+                  <th scope="row">All books from index 0 (inclusive) until index 2 (exclusive)</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[1:2]');">$..book[1:2]</a></td>
+                  <th scope="row">All books from index 1 (inclusive) until index 2 (exclusive)</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[-2:]');">$..book[-2:]</a></td>
+                  <th scope="row">Last two books</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[2:]');">$..book[2:]</a></td>
+                  <th scope="row">All books from index 2 (inclusive) to last</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[?(@.isbn)]');">$..book[?(@.isbn)]</a></td>
+                  <th scope="row">All books with an ISBN number</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$.store.book[?(@.price < 10)]');">$.store.book[?(@.price < 10)]</a></td>
+                  <th scope="row">All books in store cheaper than 10</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[?(@.price <= $['expensive'])]');">$..book[?(@.price <= $['expensive'])]</a></td>
+                  <th scope="row">All books in store that are not "expensive"</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book[?(@.author =~ /.*REES/i)]');">$..book[?(@.author =~ /.*REES/i)]</a></td>
+                  <th scope="row">All books matching regex (ignore case)</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..*');">$..*</a></td>
+                  <th scope="row">Give me every thing</th>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="javascript:evaluateExpression('$..book.length()');">$..book.length()</a></td>
+                  <th scope="row">The number of books</th>
+                </tr>
+              </tbody>
+            </table>
+            <section></section>
+            <a href="#" role="button" class="secondary" onclick="javascript:reset();">Reset Input Json and Expression</a>
           </div>
-          <div>
-            <input type="checkbox" id="DEFAULT_PATH_LEAF_TO_NULL" name="jsonPathOptions" value="DEFAULT_PATH_LEAF_TO_NULL" />
-            <label for="DEFAULT_PATH_LEAF_TO_NULL">DEFAULT_PATH_LEAF_TO_NULL</label>
-          </div>
-          <div>
-            <input type="checkbox" id="REQUIRE_PROPERTIES" name="jsonPathOptions" value="REQUIRE_PROPERTIES" />
-            <label for="REQUIRE_PROPERTIES">REQUIRE_PROPERTIES</label>
-          </div>
-        </fieldset>
-        <section></section>
-        <input type="button" value="Submit" style="width: 50%" onclick="javascript:evaluateJson();" />
+        </div>
       </form>
       <article>
         <details>
