@@ -1,7 +1,15 @@
 = Json Path Web
 
-This project contains the frontend files necessary to render an online Json Path evaluator, as seen here: https://sumiya.page/jpath.html.
+This project contains the frontend files necessary to render an online Json Path evaluator.
+
+== Preview
+image:json-path-web.gif[Online Evaluator]
+
+== Link
+Go to site: https://sumiya.page/jpath.html[sumiya.page/jpath.html]
+
+== About
 
 The Json Path implementation used behind the scenes is jayway jsonpath.
 
-The jayway library is wrapped in an API call, the source code of the wrapper is here: https://github.com/psumiya/json-path-api
+Methods on the jayway library is invoked via an API. The API sets up initialization for the library and acts as a proxy to the actual methods being invoked. The source code of the wrapper is here: https://github.com/psumiya/json-path-api
