@@ -13,3 +13,5 @@ Go to site: https://sumiya.page/jpath.html[sumiya.page/jpath.html]
 The Json Path implementation used behind the scenes is jayway jsonpath.
 
 Methods on the jayway library is invoked via an API. The API sets up initialization for the library and acts as a proxy to the actual methods being invoked. The source code of the wrapper is here: https://github.com/psumiya/json-path-api
+
+Original release announcement: https://hachyderm.io/@sumiya/109695179751925377
