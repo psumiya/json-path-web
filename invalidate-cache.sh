@@ -1,4 +1,8 @@
-export DISTRIBUTION_ID=E35HO90YLKGBXV
+# Check if the environment variable "DISTRIBUTION_ID" exists
+if [ -z "${DISTRIBUTION_ID+x}" ]; then
+    echo "Error: Environment variable 'DISTRIBUTION_ID' is not set."
+    exit 1
+fi
 
 echo ""
 echo "Creating Cache Invalidation for CloudFront Distribution $DISTRIBUTION_ID"

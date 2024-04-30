@@ -1,4 +1,8 @@
-export S3_BUCKET=algoclinic.com
+# Check if the environment variable "S3_BUCKET" exists
+if [ -z "${S3_BUCKET+x}" ]; then
+    echo "Error: Environment variable 'S3_BUCKET' is not set."
+    exit 1
+fi
 
 aws s3 sync . s3://$S3_BUCKET --dryrun \
 --exclude '*' \
